@@ -1,3 +1,5 @@
+#ifndef SZFILTER
+#define SZFILTER
 namespace szFilter{
     namespace impl{
         typedef decltype(sizeof(0)) size_type;
@@ -35,3 +37,4 @@ namespace szFilter{
         using type = filter<Pred,HoldsTypes,Ts...>;
     };
 }
+#endif
