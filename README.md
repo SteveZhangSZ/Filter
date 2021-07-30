@@ -8,7 +8,7 @@ This code is inspired by the problem described in Arthur O'Dwyer's post about [f
 The alias, inside `namespace szFilter`, is:
 ```cpp
 template<template<class> class Pred, template<class...> class HoldsTypes, class... Ts>
-using filter = typename filterHelper<(sizeof...(Ts) == 0),false>::template type<Pred,HoldsTypes, sizeof...(Ts), void, Ts...>;
+using filter = typename impl::filterHelper<(sizeof...(Ts) == 0),false>::template type<Pred,HoldsTypes, sizeof...(Ts), void, Ts...>;
 ```
 `Pred` is a class whose parameter list is a single class and has a public static member constant bool `value`. `HoldsTypes` is a class whose template parameter list takes a variable number of types. The filtered types will be stored in there. `Ts...` is the list of types from which types failing to satisfy `Pred` will be removed.
 
